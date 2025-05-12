@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package main.java.com.mycompany.app;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
