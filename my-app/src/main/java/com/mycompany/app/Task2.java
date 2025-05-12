@@ -1,29 +1,30 @@
-package main.java.com.mycompany.app;
+package com.mycompany.app;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.By;
 
 public class Task2 {
-    public static void run() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\kudko\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+    public static void getIpAddress() {
+        System.setProperty("webdriver.chrome.driver", "S:/chromedriver-win64/chromedriver.exe");
         WebDriver webDriver = new ChromeDriver();
 
         try {
             webDriver.get("https://api.ipify.org/?format=json");
             WebElement elem = webDriver.findElement(By.tagName("pre"));
-            String json = elem.getText();
 
+            String json_str = elem.getText();
             JSONParser parser = new JSONParser();
-            JSONObject obj = (JSONObject) parser.parse(json);
+            JSONObject obj = (JSONObject) parser.parse(json_str);
+
             String ip = (String) obj.get("ip");
-            System.out.println("Ваш IP: " + ip);
+            System.out.println("Ваш IP-адрес: " + ip);
 
         } catch (Exception e) {
-            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println("Error: " + e.toString());
         } finally {
             webDriver.quit();
         }

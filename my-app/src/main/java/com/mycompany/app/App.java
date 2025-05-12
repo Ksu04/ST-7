@@ -1,11 +1,9 @@
 package com.mycompany.app;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 public class App {
     public static void main(String[] args) {
-        Task2.run();
-        Task3.getWeather();
+        System.setProperty("webdriver.chrome.driver", "S:/chromedriver-win64/chromedriver.exe");
+        Task2.getIpAddress();
+        Task3.getWeatherForecast();
     }
 }
